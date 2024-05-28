@@ -6,8 +6,26 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace BACK_FLK.Models;
+
+
+
+public class DateOnlySchemaFilter : ISchemaFilter
+{
+    public void Apply(OpenApiSchema schema, SchemaFilterContext context)
+    {
+        if (context.Type == typeof(DateOnly) || context.Type == typeof(DateOnly?))
+        {
+            schema.Type = "string";
+            schema.Format = "date";
+        }
+    }
+}
+
+
 
 public class DateOnlyConverter : JsonConverter<DateOnly>
 {
