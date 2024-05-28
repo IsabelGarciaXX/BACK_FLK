@@ -9,14 +9,18 @@ using System.Text.Json.Serialization;
 
 namespace BACK_FLK.Models;
 
-
 public class DateOnlyConverter : JsonConverter<DateOnly>
 {
     private readonly string _format = "yyyy-MM-dd";
 
     public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        return DateOnly.ParseExact(reader.GetString(), _format);
+        var value = reader.GetString();
+        if (DateOnly.TryParseExact(value, _format, out var date))
+        {
+            return date;
+        }
+        throw new JsonException("Invalid date format. Expected format is yyyy-MM-dd.");
     }
 
     public override void Write(Utf8JsonWriter writer, DateOnly value, JsonSerializerOptions options)
@@ -24,6 +28,7 @@ public class DateOnlyConverter : JsonConverter<DateOnly>
         writer.WriteStringValue(value.ToString(_format));
     }
 }
+
 
 
 public partial class Servicio
