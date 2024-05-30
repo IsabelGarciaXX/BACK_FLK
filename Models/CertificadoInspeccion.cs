@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BACK_FLK.Models;
 
@@ -15,5 +16,6 @@ public partial class CertificadoInspeccion
 
     public byte[]? FondoCertificado { get; set; }
 
+    [JsonIgnore]
     public virtual Inspeccione? FkInspeccionNavigation { get; set; }
 }

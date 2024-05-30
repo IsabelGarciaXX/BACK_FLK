@@ -9,9 +9,8 @@ using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
+
 namespace BACK_FLK.Models;
-
-
 
 public class DateOnlySchemaFilter : ISchemaFilter
 {
@@ -24,8 +23,6 @@ public class DateOnlySchemaFilter : ISchemaFilter
         }
     }
 }
-
-
 
 public class DateOnlyConverter : JsonConverter<DateOnly>
 {

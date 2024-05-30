@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BACK_FLK.Models;
 
@@ -29,17 +30,24 @@ public partial class Inspeccione
 
     public string? ObservacionesYRecomendaciones { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<CertificadoInspeccion> CertificadoInspeccions { get; set; } = new List<CertificadoInspeccion>();
 
+    [JsonIgnore]
     public virtual CertificadoresDisponible? FkCertificadorAsignadoNavigation { get; set; }
 
+    [JsonIgnore]
     public virtual Empresa? FkEmpresasNavigation { get; set; }
 
+    [JsonIgnore]
     public virtual AsignacionInspectore? FkInspectoresAsignadosNavigation { get; set; }
 
+    [JsonIgnore]
     public virtual Servicio? FkServicioNavigation { get; set; }
 
+    [JsonIgnore]
     public virtual TipoInspeccion? FkTipoInspeccionNavigation { get; set; }
 
+    [JsonIgnore]
     public virtual Vehiculo? FkVehiculoNavigation { get; set; }
 }
