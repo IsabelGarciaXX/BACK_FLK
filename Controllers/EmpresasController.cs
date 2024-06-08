@@ -117,5 +117,19 @@ namespace BACK_FLK.Controllers
         {
             return _context.Empresas.Any(e => e.PkEmpresas == id);
         }
+
+        // GET: api/Empresas/byRuc/{ruc}
+        [HttpGet("byRuc/{ruc}")]
+        public async Task<ActionResult<Empresa>> GetEmpresaByRuc(string ruc)
+        {
+            var empresa = await _context.Empresas.SingleOrDefaultAsync(e => e.Ruc == ruc);
+
+            if (empresa == null)
+            {
+                return NotFound();
+            }
+
+            return empresa;
+        }
     }
 }
