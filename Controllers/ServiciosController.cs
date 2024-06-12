@@ -42,7 +42,6 @@ namespace BACK_FLK.Controllers
         }
 
         // PUT: api/Servicios/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutServicio(int id, Servicio servicio)
         {
@@ -94,7 +93,8 @@ namespace BACK_FLK.Controllers
                 }
             }
 
-            return CreatedAtAction("GetServicio", new { id = servicio.PkServicio }, servicio);
+            // Devolver el ID del servicio creado en la respuesta
+            return CreatedAtAction(nameof(GetServicio), new { id = servicio.PkServicio }, servicio);
         }
 
         // DELETE: api/Servicios/5
