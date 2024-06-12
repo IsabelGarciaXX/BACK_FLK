@@ -30,6 +30,12 @@ public partial class Inspeccione
 
     public string? ObservacionesYRecomendaciones { get; set; }
 
+    public DateTime? FechaHoraInicio { get; set; }
+    public DateTime? FechaHoraFinalizacion { get; set; }
+    public DateTime? FechaHoraEntrada { get; set; }
+    public DateTime? FechaHoraSalida { get; set; }
+    public DateTime? FechaHoraRegistroInspeccion { get; set; }
+
     [JsonIgnore]
     public virtual ICollection<CertificadoInspeccion> CertificadoInspeccions { get; set; } = new List<CertificadoInspeccion>();
 

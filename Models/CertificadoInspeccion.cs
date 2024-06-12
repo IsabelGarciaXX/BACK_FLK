@@ -13,6 +13,7 @@ public partial class CertificadoInspeccion
     public DateOnly? FechaEmision { get; set; }
 
     public DateOnly? FechaCaducidad { get; set; }
+    public DateTime? FechaHoraRegistroCertificacion { get; set; }
 
     public byte[]? FondoCertificado { get; set; }
 

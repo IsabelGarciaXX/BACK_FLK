@@ -168,6 +168,10 @@ public partial class BdFlkContext : DbContext
                 .HasColumnName("PK_CertificadoInspeccion");
             entity.Property(e => e.FkInspeccion).HasColumnName("FK_Inspeccion");
 
+            entity.Property(e => e.FechaHoraRegistroCertificacion)
+              .HasColumnName("FechaHoraRegistroCertificacion");
+          
+
             entity.HasOne(d => d.FkInspeccionNavigation).WithMany(p => p.CertificadoInspeccions)
                 .HasForeignKey(d => d.FkInspeccion)
                 .HasConstraintName("FK__Certifica__FK_In__619B8048");
@@ -274,7 +278,7 @@ public partial class BdFlkContext : DbContext
 
         modelBuilder.Entity<Inspeccione>(entity =>
         {
-            entity.HasKey(e => e.PkInspeccion).HasName("PK__Inspecci__9B00EA3ACA803837");
+            entity.HasKey(e => e.PkInspeccion).HasName("PK__Inspecci__9B00EA3ACA803837"); 
 
             entity.Property(e => e.PkInspeccion)
             .ValueGeneratedOnAdd()
@@ -287,6 +291,11 @@ public partial class BdFlkContext : DbContext
             entity.Property(e => e.FkServicio).HasColumnName("FK_Servicio");
             entity.Property(e => e.FkTipoInspeccion).HasColumnName("FK_Tipo_Inspeccion");
             entity.Property(e => e.FkVehiculo).HasColumnName("FK_Vehiculo");
+            entity.Property(e => e.FechaHoraInicio).HasColumnName("FechaHoraInicio");
+            entity.Property(e => e.FechaHoraFinalizacion).HasColumnName("FechaHoraFinalizacion");
+            entity.Property(e => e.FechaHoraEntrada).HasColumnName("FechaHoraEntrada");
+            entity.Property(e => e.FechaHoraSalida).HasColumnName("FechaHoraSalida");
+            entity.Property(e => e.FechaHoraRegistroInspeccion).HasColumnName("FechaHoraRegistroInspeccion");
             entity.Property(e => e.ObservacionesYRecomendaciones)
                 .HasMaxLength(200)
                 .HasColumnName("Observaciones_y_recomendaciones");

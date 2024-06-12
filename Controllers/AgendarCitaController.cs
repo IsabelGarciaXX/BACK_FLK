@@ -61,7 +61,6 @@ namespace BACK_FLK.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
@@ -107,6 +106,7 @@ namespace BACK_FLK.Controllers
         {
             return _context.Inspecciones.Any(e => e.PkInspeccion == id);
         }
+
 
         // Métodos para Servicios
 
@@ -157,6 +157,7 @@ namespace BACK_FLK.Controllers
             return NoContent();
         }
 
+
         [HttpPost("Servicios")]
         public async Task<ActionResult<Servicio>> PostServicio(Servicio servicio)
         {
@@ -180,6 +181,7 @@ namespace BACK_FLK.Controllers
             return CreatedAtAction(nameof(GetServicio), new { id = servicio.PkServicio }, servicio);
         }
 
+
         [HttpDelete("Servicios/{id}")]
         public async Task<IActionResult> DeleteServicio(int id)
         {
@@ -200,6 +202,7 @@ namespace BACK_FLK.Controllers
             return _context.Servicios.Any(e => e.PkServicio == id);
         }
     }
+
 }
 
 
